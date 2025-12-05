@@ -3,7 +3,7 @@
 This repository contains Stata code and data to replicate and extend  
 Myoung-jae Lee (2017), *“Extensive and intensive margin effects in sample selection models: Racial effects on wages.”*  
 
-The code implements Lee’s decomposition of the racial wage gap into extensive and intensive margin effects under different selection models (independence, normality, quadratic), and adds a cubic specification as suggested in the paper.
+This repository exactly replicates the linear (independence), normality (Heckit), and quadratic control-function specifications reported in Lee (2017), and then implements an additional cubic control-function model that is not estimated in the original paper. Lee (2017) notes that higher-order polynomial approximations of the selection index are theoretically admissible, but the published article reports results only up to the quadratic case. Building on that observation, the ado file here augments the outcome equation with the corresponding third-order term in the selection index and computes the associated intensive margin effect (IME), extensive margin effect (EME), and total effect (TE). The rows labeled IME_cub, EME_cub, and TE_cub in the output table are therefore new estimates produced by this replication/extension, using the original data and covariates, and do not appear in Lee (2017).
 
 The main components are:
 
