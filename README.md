@@ -46,8 +46,6 @@ The example uses a single dataset:
 The replication and extension are entirely in Stata.
 
 - **Stata**: tested with Stata 14; should work with Stata 15+ as well
-- **User-written packages (optional but recommended)**:
-  - `estout` (for nice tables; install via `ssc install estout`)
 
 No other external software or languages are required.
 
@@ -93,25 +91,8 @@ A typical layout for this repository is:
   Example dataset used to replicate the decomposition for Mexican-American vs white male workers, as in Lee (2017).
 
 - `replication.do` 
-  Example script showing how to run the ado programs and format the output. A minimal version is:
+  Script showing how to run the ado programs, generate replications and extentions, and format the output. 
 
-    clear all
-    set more off
-
-    use MJLEEdata, clear
-
-    * Optional: also save CSV version
-    export delimited using "MJLEEdata.csv", replace
-
-    MJleeIMEEMEs2 salarios etnia wagesmpl, ///
-        selection_int(age educa voca veterano hisppor calif newme texas marital) ///
-        selection_cov(age age2_100 age_edu educa voca veterano hisppor calif newme texas marital) ///
-        outcome_int(age educa voca veterano dindphis doccphis hisppor calif newme texas) ///
-        outcome_cov(age age2_100 age_edu educa voca veterano dindphis doccphis hisppor calif newme texas) ///
-        repetitions(200) seed(12345)
-
-    * Store results matrix locally
-    matrix TE = r(results)
 
 ---
 
